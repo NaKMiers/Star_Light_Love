@@ -1,0 +1,60 @@
+.BottomIntroduce {
+   overflow: hidden;
+}
+
+.container {
+   display: flex;
+   flex-wrap: wrap;
+
+   // background: blueviolet;
+
+   &.reverse {
+      flex-direction: row-reverse;
+   }
+}
+
+.part {
+   width: 50%;
+   padding: 0 21px;
+
+   // tablet
+   @media (max-width: 980px) {
+      width: 100%;
+   }
+
+   &:nth-of-type(2) {
+      // background: cyan;
+      padding: 0 21px 23px;
+   }
+}
+
+.title {
+   letter-spacing: 0.04em;
+   margin: -9px 0 70px;
+   // background: #000;
+   text-transform: none;
+
+   // tablet
+   @media (max-width: 980px) {
+      margin: 0 0 70px;
+   }
+}
+
+.signature {
+   width: 178px;
+   margin: 50px 0 0;
+   // background-color: #ccc;
+
+   & > img {
+      display: block;
+      width: 100%;
+   }
+}
+
+.image {
+   width: 100%;
+   opacity: 0; // for appear
+   & > img {
+      width: 100%;
+   }
+}

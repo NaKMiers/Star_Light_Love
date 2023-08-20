@@ -1,0 +1,20 @@
+.PageHeading {
+   padding: 170px 0 80px;
+   overflow: hidden;
+   // background: green;
+}
+
+.container {
+   padding: 0 21px;
+   // background: #ccc;
+
+   & > .title {
+      // background: blueviolet;
+      white-space: pre-wrap;
+      margin-bottom: 30px;
+   }
+
+   & > .subTitle {
+      letter-spacing: 0.03em;
+   }
+}

@@ -1,0 +1,341 @@
+.Navigation {
+   --sidebar-duration: 0.7s;
+
+   position: fixed;
+   left: -315px;
+   z-index: 3;
+
+   height: 100vh;
+   width: 360px;
+   background: var(--secondary);
+   transition: var(--sidebar-duration) ease-in-out;
+
+   &.open {
+      left: 0;
+   }
+
+   // mobile large
+   @media (max-width: 980px) {
+      position: static;
+      width: 100%;
+      height: auto;
+
+      & > .sidebar {
+         display: none;
+      }
+
+      & > .header {
+         display: flex;
+      }
+   }
+}
+
+// sidebar
+.sidebar {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+
+   width: 100%;
+   height: 100%;
+   padding: 55px 45px 50px;
+}
+
+.sidebarBtn {
+   position: absolute;
+   top: 13px;
+   right: 9px;
+   width: 27px;
+   height: 17.5px;
+   // background: blueviolet;
+
+   & > div {
+      position: absolute;
+      left: 50%;
+
+      width: 27px;
+      height: 3px;
+      transition: var(--sidebar-duration) ease-in-out;
+      background: #fff;
+
+      &:nth-of-type(1) {
+         top: 0;
+         transform: translate(-50%, -50%) rotate(0deg);
+      }
+
+      &:nth-of-type(2) {
+         top: 50%;
+         transform: translate(-50%, -50%);
+         opacity: 1;
+      }
+
+      &:nth-of-type(3) {
+         top: 100%;
+         transform: translate(-50%, -50%) rotate(0deg);
+      }
+   }
+
+   &.active > div {
+      &:nth-of-type(1) {
+         top: 50%;
+         transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &:nth-of-type(2) {
+         opacity: 0;
+      }
+
+      &:nth-of-type(3) {
+         top: 50%;
+         transform: translate(-50%, -50%) rotate(-45deg);
+      }
+   }
+}
+
+.navBody {
+   padding: 0 21px;
+   // background: aquamarine;
+}
+
+.sidebarLogo {
+   display: block;
+   width: 100%;
+   padding: 15px 0;
+   margin-bottom: 40px;
+
+   // pc
+   @media (max-width: 1200px) {
+      padding: 30px 0 0;
+   }
+
+   & > img {
+      display: block;
+      height: 47px;
+      cursor: pointer;
+   }
+}
+
+.sidebarNav {
+   display: flex;
+   flex-direction: column;
+
+   & > .navLink {
+      display: block;
+      padding: 12px 0 13px;
+      line-height: 25px;
+
+      font-size: 14px;
+      font-weight: 800;
+      color: #fff;
+      transition: var(--standard-duration) ease-in-out;
+      text-transform: uppercase;
+
+      &:hover {
+         color: var(--primary);
+      }
+
+      &.active {
+         color: var(--primary);
+      }
+   }
+}
+
+.navWidgets {
+   padding: 0 21px;
+   // background: aqua;
+
+   & > .sidebarSearch {
+      position: relative;
+      margin-bottom: 25px;
+      background: #fff;
+
+      & > input {
+         width: 100%;
+         height: 40px;
+         padding: 0 40px 0 10px;
+
+         &::placeholder {
+            font-size: 14px;
+            font-weight: 500;
+            color: #666972;
+         }
+      }
+
+      & > .searchIcon {
+         position: absolute;
+         top: 50%;
+         right: 0;
+         transform: translateY(-50%);
+
+         width: 40px;
+         line-height: 40px;
+         text-align: center;
+
+         color: #666972;
+         cursor: pointer;
+      }
+   }
+
+   & > .socials {
+      display: flex;
+      flex-wrap: wrap;
+      // background: beige;
+
+      & > .social {
+         flex: 1;
+         display: flex;
+         justify-content: center;
+
+         margin-top: 10px;
+
+         & > img {
+            display: block;
+            width: 25px;
+         }
+      }
+   }
+}
+
+// header
+.header {
+   position: relative;
+
+   display: none;
+   justify-content: space-between;
+   padding: 0 21px 0;
+   z-index: 3;
+}
+
+.headerLogo {
+   flex: 1;
+   display: block;
+   padding: 15px 0;
+
+   & > img {
+      display: block;
+      height: 37px;
+      cursor: pointer;
+   }
+}
+
+.headerBtnWrap {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   width: 18%;
+   height: 60px;
+   padding: 15px 0;
+
+   & > .headerBtn {
+      position: relative;
+      width: 36px;
+      height: 10px;
+
+      & > div {
+         position: absolute;
+         left: 50%;
+
+         width: 18px;
+         height: 2px;
+         background: #fff;
+
+         &:nth-of-type(1) {
+            top: 0;
+            transform: translate(-50%, -50%) rotate(0deg);
+         }
+
+         &:nth-of-type(2) {
+            top: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 1;
+         }
+
+         &:nth-of-type(3) {
+            top: 100%;
+            transform: translate(-50%, -50%) rotate(0deg);
+         }
+      }
+   }
+}
+
+.headerNav {
+   position: absolute;
+   top: 100%;
+   left: 0;
+   padding: 0 21px;
+
+   display: none;
+   flex-direction: column;
+   width: 100%;
+   transition: var(--standard-duration) ease-in-out;
+   transform: translateY(12px);
+   opacity: 0;
+
+   &.open {
+      transform: translateY(0);
+      opacity: 1;
+   }
+
+   & > .navLink {
+      padding: 16px 30px;
+      border: 1px solid #666972;
+      border-bottom: none;
+      background: var(--secondary);
+
+      font-size: 16px;
+      font-family: 'Source Sans Pro', sans-serif;
+      color: var(--text-secondary);
+
+      &.active {
+         position: relative;
+         color: #fff;
+         background: #181828;
+
+         &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+         }
+      }
+   }
+
+   & > .headerSearch {
+      position: relative;
+      background: var(--secondary);
+      padding: 20px 30px;
+      border: 1px solid #666972;
+
+      & > input {
+         background: #fff;
+         width: 100%;
+         height: 40px;
+         padding: 0 40px 0 10px;
+         border-radius: 4px;
+
+         &::placeholder {
+            font-size: 14px;
+            font-weight: 500;
+            color: #666972;
+         }
+      }
+
+      & > .searchIcon {
+         position: absolute;
+         top: 50%;
+         right: 30px;
+         transform: translateY(-50%);
+
+         width: 40px;
+         line-height: 40px;
+         text-align: center;
+
+         color: #666972;
+         cursor: pointer;
+      }
+   }
+}

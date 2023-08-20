@@ -1,0 +1,119 @@
+.Statictical {
+   overflow: hidden;
+   margin-bottom: 120px;
+}
+
+.container {
+   display: flex;
+   flex-wrap: wrap;
+
+   max-width: 1212px;
+   width: 100%;
+   margin: 0 auto;
+}
+
+.staticItem {
+   width: 25%;
+   padding: 80px 21px 0;
+   // background: beige;
+
+   // tablet
+   @media (max-width: 980px) {
+      width: 50%;
+   }
+
+   // mobile large
+   @media (max-width: 768px) {
+      width: 100%;
+   }
+
+   &:nth-of-type(1) > .staticWrap {
+      & > .cirle {
+         background: #4a4a4a;
+         & > .text {
+            color: var(--yellow);
+         }
+      }
+   }
+
+   &:nth-of-type(2) > .staticWrap {
+      & > .cirle {
+         background: #aaedf0;
+         & > .text {
+            color: var(--primary);
+         }
+      }
+   }
+
+   &:nth-of-type(3) > .staticWrap {
+      & > .cirle {
+         background: #f4d2cf;
+         & > .text {
+            color: #fe6c61;
+         }
+      }
+   }
+
+   &:nth-of-type(4) > .staticWrap {
+      & > .cirle {
+         background: #e0d8ea;
+         & > .text {
+            color: #ba7fbc;
+         }
+      }
+   }
+}
+
+.staticWrap {
+   margin-bottom: 26px;
+   // background: blue;
+
+   & > .cirle {
+      position: relative;
+      width: 80%;
+      padding-top: 80%;
+      margin: 0 auto;
+      border-radius: 50%;
+      overflow: hidden;
+
+      & > .text {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         font-size: 50px;
+      }
+
+      & > .cirleBar {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+
+         &::after {
+            content: '';
+            position: absolute;
+            top: 7px;
+            left: 7px;
+            right: 7px;
+            bottom: 7px;
+            border-radius: 50%;
+            background: #eee;
+         }
+      }
+   }
+}
+
+.content {
+   text-align: center;
+   & > p:nth-of-type(1) {
+      font-size: 24px;
+      font-weight: 300;
+      font-family: 'Source Sans Pro', sans-serif;
+      line-height: 37px;
+      color: #fff;
+      margin-bottom: 1.1rem;
+      // background: blueviolet;
+   }
+}

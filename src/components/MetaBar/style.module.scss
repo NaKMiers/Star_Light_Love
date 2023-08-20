@@ -1,0 +1,130 @@
+.MetaBar {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   flex-direction: row-reverse;
+   // align-items: flex-start;
+
+   padding: 0 21px;
+   margin-bottom: 55px;
+   // background: aquamarine;
+
+   &.type2 {
+      padding: 0;
+      margin: 0;
+
+      & .sep {
+         background: #fff;
+      }
+   }
+
+   &.type3 {
+      & .sep {
+         background: #fff;
+      }
+
+      & > .right > .metaBtn {
+         color: #fff;
+      }
+   }
+}
+
+.left {
+   flex: 1;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   & > .icon {
+      font-size: 19px;
+      margin-right: 8px;
+      color: #fff;
+
+      &.heartIcon {
+         font-size: 14px;
+         color: #f44336;
+
+         & > span {
+            font-size: 16px;
+            margin-left: 8px;
+            font-family: 'Source Sans Pro', sans-serif;
+         }
+      }
+   }
+
+   & > span {
+      font-size: 16px;
+      font-family: 'Source Sans Pro', sans-serif;
+      line-height: 25px;
+      color: var(--text-secondary);
+
+      &.category {
+         color: var(--primary);
+         transition: var(--standard-duration) ease-in-out;
+         cursor: pointer;
+         &:hover {
+            color: #fff;
+         }
+      }
+   }
+}
+
+.sep {
+   width: 0.8px;
+   height: 20px;
+   margin: 0 9px;
+   background: #41434d;
+}
+
+.right {
+   height: 25px;
+   display: flex;
+   align-items: center;
+
+   & > .icon {
+      font-size: 14px;
+      color: var(--text-secondary);
+      transition: var(--standard-duration) ease-in-out;
+      cursor: pointer;
+      white-space: nowrap;
+
+      & > span {
+         margin-left: 4px;
+         font-size: 16px;
+         font-family: 'Source Sans Pro', sans-serif;
+      }
+
+      &:first-of-type:hover {
+         color: var(--primary);
+      }
+
+      &:last-of-type {
+         color: #f44336;
+         &:hover {
+            color: var(--secondary);
+         }
+      }
+   }
+
+   & > .metaBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 14px;
+      width: 24px;
+      height: 25px;
+      color: var(--text-secondary);
+      transition: var(--standard-duration) ease-in-out;
+
+      &.prev {
+         margin-left: 12px;
+      }
+      &.bars {
+         font-size: 17px;
+      }
+
+      &:hover {
+         color: #fff;
+      }
+   }
+}

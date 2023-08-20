@@ -1,0 +1,136 @@
+.PostComment {
+   overflow: hidden;
+   // background-color: blanchedalmond;
+}
+
+.commentTitle {
+   display: flex;
+   padding: 0 21px;
+   margin-bottom: 40px;
+   text-transform: uppercase;
+   color: #fff;
+
+   & > .icon {
+      margin-right: 25px;
+      font-size: 48px;
+      color: var(--primary);
+      // background: #eee;
+   }
+
+   & > h2 {
+      font-size: 36px;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      line-height: 53px;
+
+      // mobile large
+      @media (max-width: 768px) {
+         font-size: 30px;
+      }
+
+      & > span {
+         font-weight: 700;
+      }
+   }
+}
+
+.formComment {
+   overflow: hidden;
+}
+
+.infoArea {
+   display: flex;
+   flex-wrap: wrap;
+
+   & > div {
+      position: relative;
+
+      width: calc(100% / 3);
+      // background: #eee;
+      padding: 0 21px;
+      margin-bottom: 36px;
+
+      // tablet
+      @media (max-width: 980px) {
+         width: 100%;
+         margin-bottom: 1.1rem;
+      }
+
+      & > input {
+         height: 50.6px;
+         width: 100%;
+         padding: 12px 40px 12px 20px;
+         cursor: auto;
+
+         font-size: 14px;
+         font-weight: 500;
+         background: var(--secondary);
+
+         &::placeholder {
+            color: #ababab;
+         }
+      }
+
+      & > div {
+         position: absolute;
+         top: 50%;
+         right: 38px;
+         transform: translateY(-50%);
+         font-size: 20px;
+         color: var(--primary);
+      }
+   }
+}
+
+.messageArea {
+   // background: #ccc;
+   max-width: 100%;
+   padding: 0 21px;
+   margin-bottom: 1.1rem;
+
+   & > textarea {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+      padding: 15px 25px;
+      line-height: 25px;
+
+      font-size: 16px;
+      font-weight: 500;
+      font-family: 'Source Sans Pro', sans-serif;
+      cursor: auto;
+      background: var(--secondary);
+
+      &::placeholder {
+         color: #ababab;
+      }
+   }
+}
+
+.submitArea {
+   padding: 0 21px;
+
+   & > button {
+      padding: 0 25px;
+      margin: 35px 0 30px;
+      border-radius: 4px;
+
+      // tablet
+      @media (max-width: 980px) {
+         margin: 42px 0 30px;
+      }
+
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 50px;
+      color: #fff;
+      background: var(--primary);
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+         color: #000;
+         background: #fff;
+      }
+   }
+}
