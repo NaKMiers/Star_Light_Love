@@ -11,7 +11,7 @@
 }
 
 .container {
-   --size: 25%;
+   --size: calc(100% / 6);
    --duration1: 0.4s;
    --delay1: 0s;
    --delay2: 0.1s;
@@ -23,17 +23,17 @@
 
    // pc
    @media (max-width: 1200px) {
-      --size: calc(100% / 3);
+      --size: calc(100% / 5);
    }
 
    // mobile large
    @media (max-width: 768px) {
-      --size: 50%;
+      --size: calc(100% / 4);
    }
 
    // mobile medium
    @media (max-width: 548px) {
-      --size: 100%;
+      --size: calc(100% / 2);
    }
 }
 

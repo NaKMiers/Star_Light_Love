@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import actions from '../../actions'
-import mediaApis from '../../apis'
 import facebook from '../../assets/imgs/facebookWhite.png'
 import linkedin from '../../assets/imgs/linkedinWhite.png'
 import pinterest from '../../assets/imgs/pinterestWhite.png'
@@ -21,7 +20,7 @@ function CaseItem({ data }) {
    const videoRef = useRef(null)
 
    const [isShowDesc, setShowDesc] = useState(false)
-   const [isEditing, setEditing] = useState(false)
+   const [isEditing] = useState(false)
    const [title, setTitle] = useState(data?.title || '')
    const [desc, setDesc] = useState(data?.desc || '')
    const [duration, setDuration] = useState('')
@@ -60,35 +59,35 @@ function CaseItem({ data }) {
       handleHideSocials()
    }, [handleHideSocials])
 
-   // save edit "title and desc"
-   const handleSaveEdit = useCallback(async () => {
-      console.log('handleSaveEdit')
-      if (title !== data.title || desc !== data.desc) {
-         try {
-            const res = await mediaApis.editMedia(data._id, { title, desc })
-            console.log(res.data)
-            dispatch(actions.editMediaDirectly(res.data))
-            setEditing(false)
-         } catch (err) {
-            console.log(err)
-         }
-      } else {
-         setEditing(false)
-      }
-   }, [data, title, desc, dispatch])
+   // // save edit "title and desc"
+   // const handleSaveEdit = useCallback(async () => {
+   //    console.log('handleSaveEdit')
+   //    if (title !== data.title || desc !== data.desc) {
+   //       try {
+   //          const res = await mediaApis.editMedia(data._id, { title, desc })
+   //          console.log(res.data)
+   //          dispatch(actions.editMediaDirectly(res.data))
+   //          setEditing(false)
+   //       } catch (err) {
+   //          console.log(err)
+   //       }
+   //    } else {
+   //       setEditing(false)
+   //    }
+   // }, [data, title, desc, dispatch])
 
-   // delete media
-   const handleDeleteMedia = useCallback(async () => {
-      console.log('handleDeleteMedia')
+   // // delete media
+   // const handleDeleteMedia = useCallback(async () => {
+   //    console.log('handleDeleteMedia')
 
-      try {
-         const res = await mediaApis.deleteMedia(data._id)
-         console.log('res-delete: ', res.data)
-         dispatch(actions.deleteMediaDirectly(res.data._id))
-      } catch (err) {
-         console.log(err)
-      }
-   }, [dispatch, data])
+   //    try {
+   //       const res = await mediaApis.deleteMedia(data._id)
+   //       console.log('res-delete: ', res.data)
+   //       dispatch(actions.deleteMediaDirectly(res.data._id))
+   //    } catch (err) {
+   //       console.log(err)
+   //    }
+   // }, [dispatch, data])
 
    // format duration
    const formatDuration = useCallback(seconds => {
