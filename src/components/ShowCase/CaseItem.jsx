@@ -1,11 +1,4 @@
-import {
-   faEdit,
-   faEye,
-   faFileLines,
-   faSave,
-   faShareAlt,
-   faTrashAlt,
-} from '@fortawesome/free-solid-svg-icons'
+import { faEye, faFileLines, faShareAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -140,7 +133,7 @@ function CaseItem({ data }) {
                   <source src={`${PUBLIC_FOLDER}${data?.path}`} />
                </video>
             ) : (
-               <img src={`${PUBLIC_FOLDER}${data?.path}`} alt='thumbnail' />
+               <img src={`${PUBLIC_FOLDER}${data?.path}`} alt='thumbnail' loading='lazy' />
             )}
          </div>
 
@@ -165,7 +158,7 @@ function CaseItem({ data }) {
                >
                   <FontAwesomeIcon icon={faEye} />
                </div>
-               <div
+               {/* <div
                   className={`${styles.icon} ${isEditing ? styles.editing : ''}`}
                   onClick={e => {
                      e.stopPropagation()
@@ -182,7 +175,7 @@ function CaseItem({ data }) {
                   }}
                >
                   <FontAwesomeIcon icon={faTrashAlt} />
-               </div>
+               </div> */}
                <div
                   className={styles.icon}
                   onClick={e => {

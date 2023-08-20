@@ -254,6 +254,10 @@
       bottom: -100%;
       opacity: 0;
 
+      &::-webkit-scrollbar {
+         display: none;
+      }
+
       width: 100%;
       max-height: calc(100% - 85px);
       min-height: calc(100% / 3);
@@ -287,6 +291,10 @@
          letter-spacing: 0.05em;
          color: #fff;
          line-height: 23px;
+
+         &::-webkit-scrollbar {
+            display: none;
+         }
       }
 
       & > .descInput {

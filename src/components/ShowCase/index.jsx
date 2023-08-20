@@ -1,5 +1,3 @@
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import actions from '../../actions'
@@ -10,8 +8,6 @@ import styles from './style.module.scss'
 function ShowCase() {
    const dispatch = useDispatch()
    const showcase = useSelector(state => state.medias.medias)
-
-   console.log('showcase: ', showcase)
 
    const containerRef = useRef(null)
    const fileRef = useRef(null)
@@ -143,7 +139,7 @@ function ShowCase() {
    return (
       <section className={styles.ShowCase}>
          <div className={styles.container} ref={containerRef}>
-            <div
+            {/* <div
                className={styles.addMediaBtn}
                onClick={() => {
                   // setOpenModal(true)
@@ -153,10 +149,10 @@ function ShowCase() {
                <button className={styles.addIcon}>
                   <FontAwesomeIcon icon={faPlus} />
                </button>
-            </div>
+            </div> */}
 
-            {showcase.map(media => (
-               <CaseItem data={media} key={media._id} />
+            {showcase.map((media, index) => (
+               <CaseItem data={media} key={index} />
             ))}
 
             <AddMediaModal reRender={handleScrollAnimation} />
