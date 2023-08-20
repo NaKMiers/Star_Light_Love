@@ -207,12 +207,12 @@ function MediaReview() {
          <div className={`${styles.media} ${isZoom ? styles.zoom : ''}`} ref={mediaRef}>
             {type === 'image' ? (
                <img
-                  src={unUploaded ? media : `${PUBLIC_FOLDER}/${media}`}
+                  src={unUploaded ? media : `${PUBLIC_FOLDER}${media}`}
                   alt='thumbnail'
                   onClick={() => setZoom(!isZoom)}
                />
             ) : (
-               <video src={unUploaded ? media : `${PUBLIC_FOLDER}/${media}`} controls ref={videoRef} />
+               <video src={unUploaded ? media : `${PUBLIC_FOLDER}${media}`} controls ref={videoRef} />
             )}
          </div>
       </div>

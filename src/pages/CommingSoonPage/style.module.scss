@@ -1,0 +1,42 @@
+.CommingSoonPage {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   height: 100vh;
+   overflow: hidden;
+}
+
+.container {
+   max-width: 808px;
+   max-height: 760px;
+   width: 100%;
+
+   text-align: center;
+   padding: 135px 21px 100px;
+   // background-color: beige;
+}
+
+.svgWrap {
+   margin-bottom: 1.1rem;
+}
+
+.title {
+   // background: #000;
+   margin-bottom: 1.1rem;
+}
+
+.subTitle {
+   font-size: 24px;
+   font-weight: 300;
+   font-family: 'Source Sans Pro', sans-serif;
+   line-height: 37px;
+   // background: #000;
+   color: #fff;
+
+   & > .link {
+      background: var(--primary);
+      margin-left: 8px;
+      padding: 0 8px;
+   }
+}

@@ -30,13 +30,21 @@
 
 .title {
    letter-spacing: 0.04em;
-   margin: -9px 0 70px;
+   margin: -9px 0 30px;
    // background: #000;
    text-transform: none;
 
    // tablet
    @media (max-width: 980px) {
       margin: 0 0 70px;
+   }
+}
+
+.poem {
+   letter-spacing: 2px;
+   // tablet
+   @media (max-width: 980px) {
+      text-align: center;
    }
 }
 

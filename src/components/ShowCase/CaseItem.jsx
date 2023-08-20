@@ -7,7 +7,7 @@ import {
    faTrashAlt,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { memo, useCallback, useRef, useState } from 'react'
+import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import actions from '../../actions'
 import mediaApis from '../../apis'
@@ -25,11 +25,13 @@ function CaseItem({ data }) {
 
    const overlayRef = useRef(null)
    const socialsRef = useRef(null)
+   const videoRef = useRef(null)
 
    const [isShowDesc, setShowDesc] = useState(false)
    const [isEditing, setEditing] = useState(false)
    const [title, setTitle] = useState(data?.title || '')
    const [desc, setDesc] = useState(data?.desc || '')
+   const [duration, setDuration] = useState('')
 
    // show social media share
    const handleShowSocials = useCallback(() => {
@@ -95,6 +97,35 @@ function CaseItem({ data }) {
       }
    }, [dispatch, data])
 
+   // format duration
+   const formatDuration = useCallback(seconds => {
+      const minutes = Math.floor(seconds / 60)
+      const remainingSeconds = Math.floor(seconds % 60)
+
+      const formattedMinutes = String(minutes).padStart(2, '0')
+      const formattedSeconds = String(remainingSeconds).padStart(2, '0')
+
+      return `${formattedMinutes}:${formattedSeconds}`
+   }, [])
+
+   useEffect(() => {
+      const showDuration = () => {
+         const timeout = setTimeout(() => {
+            console.log(123123)
+            if (videoRef.current.duration) {
+               setDuration(formatDuration(videoRef.current.duration))
+               clearTimeout(timeout)
+            } else {
+               showDuration()
+            }
+         }, 1000)
+      }
+
+      if (videoRef.current) {
+         showDuration()
+      }
+   })
+
    return (
       <div
          className={styles.caseItem}
@@ -105,11 +136,11 @@ function CaseItem({ data }) {
       >
          <div className={styles.thumbnail}>
             {data?.type === 'video' ? (
-               <video>
-                  <source src={`${PUBLIC_FOLDER}/${data?.path}`} />
+               <video ref={videoRef}>
+                  <source src={`${PUBLIC_FOLDER}${data?.path}`} />
                </video>
             ) : (
-               <img src={`${PUBLIC_FOLDER}/${data?.path}`} alt='thumbnail' />
+               <img src={`${PUBLIC_FOLDER}${data?.path}`} alt='thumbnail' />
             )}
          </div>
 
@@ -250,6 +281,10 @@ function CaseItem({ data }) {
                   onClick={e => e.stopPropagation()}
                />
             </div>
+         </div>
+
+         <div className={styles.videoDuration}>
+            <span>{duration ? duration : ''}</span>
          </div>
       </div>
    )

@@ -1,6 +1,5 @@
 import React, { memo, useCallback, useEffect, useRef } from 'react'
 import styles from './style.module.scss'
-import introduceImg1 from '../../assets/imgs/introduceImg1.jpg'
 
 function TopIntroduce({ in4s, reverse }) {
    const part1Ref = useRef(null)
@@ -63,7 +62,7 @@ function TopIntroduce({ in4s, reverse }) {
 
             <div className={styles.part} ref={part2Ref}>
                <div className={styles.image}>
-                  <img src={introduceImg1} alt='introduce' />
+                  <img src={in4s.banner[0]} alt='introduce' />
                </div>
             </div>
          </div>

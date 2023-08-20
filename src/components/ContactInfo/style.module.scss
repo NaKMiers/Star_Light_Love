@@ -29,16 +29,47 @@
       width: 100%;
    }
 
-   &:nth-of-type(1) {
+   &.white {
+      & > .title,
+      & > .paragraph {
+         color: #fff;
+      }
+   }
+
+   &.address {
       background: var(--primary);
    }
 
-   &:nth-of-type(2) {
+   &.phone {
       background: var(--yellow);
    }
 
-   &:nth-of-type(3) {
+   &.mail {
       background: #ff729f;
+   }
+
+   &.facebook {
+      background: #0f92f3;
+   }
+
+   &.instagram {
+      background: #ee0997;
+   }
+
+   &.twitter {
+      background: #1da1f2;
+   }
+
+   &.pinterest {
+      background: #e60023;
+   }
+
+   &.tiktok {
+      background: #000;
+   }
+
+   &.zalo {
+      background: #0065f6;
    }
 }
 

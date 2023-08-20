@@ -10,6 +10,7 @@ import pinterest from '../../assets/imgs/pinterest.png'
 import twitter from '../../assets/imgs/twitter.png'
 import youtube from '../../assets/imgs/youtube.png'
 import styles from './style.module.scss'
+import commingSoon from '../../assets/imgs/commingsoon.png'
 
 function Navigation() {
    const navigate = useNavigate()
@@ -82,33 +83,52 @@ function Navigation() {
                   >
                      About Us
                   </NavLink>
-                  {/* <NavLink
-                     to='/portfolio'
-                     className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}
-                     onClick={() => setOpenSidebar(false)}
-                  >
-                     Portfolio
-                  </NavLink> */}
-                  {/* <NavLink
-                     to='/services'
-                     className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}
-                     onClick={() => setOpenSidebar(false)}
-                  >
-                     Services
-                  </NavLink> */}
-                  {/* <NavLink
-                     to='/blogs'
-                     className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}
-                     onClick={() => setOpenSidebar(false)}
-                  >
-                     Blogs
-                  </NavLink> */}
+
                   <NavLink
                      to='/contact'
                      className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}
                      onClick={() => setOpenSidebar(false)}
                   >
                      Contact Us
+                  </NavLink>
+
+                  <NavLink
+                     to='/blogs'
+                     className={({ isActive }) =>
+                        `${styles.navLink} ${styles.commingSoon} ${isActive ? styles.active : ''}`
+                     }
+                     onClick={() => setOpenSidebar(false)}
+                  >
+                     Blogs
+                     <div className={styles.badge}>
+                        <img src={commingSoon} alt='comming soon' />
+                     </div>
+                  </NavLink>
+
+                  <NavLink
+                     to='/services'
+                     className={({ isActive }) =>
+                        `${styles.navLink} ${styles.commingSoon} ${isActive ? styles.active : ''}`
+                     }
+                     onClick={() => setOpenSidebar(false)}
+                  >
+                     Services
+                     <div className={styles.badge}>
+                        <img src={commingSoon} alt='comming soon' />
+                     </div>
+                  </NavLink>
+
+                  <NavLink
+                     to='/portfolio'
+                     className={({ isActive }) =>
+                        `${styles.navLink} ${styles.commingSoon} ${isActive ? styles.active : ''}`
+                     }
+                     onClick={() => setOpenSidebar(false)}
+                  >
+                     Portfolio
+                     <div className={styles.badge}>
+                        <img src={commingSoon} alt='comming soon' />
+                     </div>
                   </NavLink>
                </nav>
             </header>
@@ -211,33 +231,46 @@ function Navigation() {
                >
                   About Us
                </NavLink>
-               {/* <NavLink
-                  to='/portfolio'
-                  className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}
-                  onClick={() => handleOpenNavHeader(false)}
-               >
-                  Portfolio
-               </NavLink> */}
-               {/* <NavLink
-                  to='/services'
-                  className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}
-                  onClick={() => handleOpenNavHeader(false)}
-               >
-                  Services
-               </NavLink> */}
-               {/* <NavLink
-                  to='/blogs'
-                  className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}
-                  onClick={() => handleOpenNavHeader(false)}
-               >
-                  Blogs
-               </NavLink> */}
+
                <NavLink
                   to='/contact'
                   className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}
                   onClick={() => handleOpenNavHeader(false)}
                >
                   Contact
+               </NavLink>
+
+               <NavLink
+                  to='/blogs'
+                  className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}
+                  onClick={() => handleOpenNavHeader(false)}
+               >
+                  Blogs
+                  <div className={styles.badge}>
+                     <img src={commingSoon} alt='comming soon' />
+                  </div>
+               </NavLink>
+
+               <NavLink
+                  to='/services'
+                  className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}
+                  onClick={() => handleOpenNavHeader(false)}
+               >
+                  Services
+                  <div className={styles.badge}>
+                     <img src={commingSoon} alt='comming soon' />
+                  </div>
+               </NavLink>
+
+               <NavLink
+                  to='/portfolio'
+                  className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}
+                  onClick={() => handleOpenNavHeader(false)}
+               >
+                  Portfolio
+                  <div className={styles.badge}>
+                     <img src={commingSoon} alt='comming soon' />
+                  </div>
                </NavLink>
 
                <div className={styles.headerSearch}>

@@ -1,12 +1,11 @@
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import actions from '../../actions'
+import AddMediaModal from '../AddMediaModal'
 import CaseItem from './CaseItem'
 import styles from './style.module.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import AddMediaModal from '../AddMediaModal'
-import actions from '../../actions'
-import mediaApi from '../../apis'
 
 function ShowCase() {
    const dispatch = useDispatch()
@@ -125,29 +124,25 @@ function ShowCase() {
       }
    }, [handleScrollAnimation])
 
-   // get data
-   useEffect(() => {
-      const getData = async () => {
-         try {
-            const res = await mediaApi.getMedia()
-            console.log('res-get: ', res.data)
-            dispatch(actions.getMedia(res.data))
-            handleScrollAnimation()
-         } catch (err) {
-            console.log(err)
-         }
-      }
+   // // get data
+   // useEffect(() => {
+   //    const getData = async () => {
+   //       try {
+   //          const res = await mediaApi.getMedia()
+   //          console.log('res-get: ', res.data)
+   //          dispatch(actions.getMedia(res.data))
+   //          handleScrollAnimation()
+   //       } catch (err) {
+   //          console.log(err)
+   //       }
+   //    }
 
-      getData()
-   }, [dispatch, handleScrollAnimation])
+   //    getData()
+   // }, [dispatch, handleScrollAnimation])
 
    return (
       <section className={styles.ShowCase}>
          <div className={styles.container} ref={containerRef}>
-            {showcase.map(media => (
-               <CaseItem data={media} key={media._id} />
-            ))}
-
             <div
                className={styles.addMediaBtn}
                onClick={() => {
@@ -159,6 +154,10 @@ function ShowCase() {
                   <FontAwesomeIcon icon={faPlus} />
                </button>
             </div>
+
+            {showcase.map(media => (
+               <CaseItem data={media} key={media._id} />
+            ))}
 
             <AddMediaModal reRender={handleScrollAnimation} />
             <input

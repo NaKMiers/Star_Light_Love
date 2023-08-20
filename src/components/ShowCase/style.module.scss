@@ -83,6 +83,10 @@
       & > .overlay {
          opacity: 1;
       }
+
+      & > .videoDuration {
+         opacity: 0;
+      }
    }
 }
 
@@ -343,6 +347,17 @@
          animation: floatDown var(--duration1) ease-in-out forwards;
       }
    }
+}
+
+.videoDuration {
+   position: absolute;
+   right: 16px;
+   bottom: 12px;
+
+   font-size: 16px;
+   font-weight: 60;
+   color: #fff;
+   transition: var(--duration1) ease-in-out;
 }
 
 @keyframes zoomOut {

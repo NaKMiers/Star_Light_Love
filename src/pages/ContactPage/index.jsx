@@ -15,6 +15,12 @@ const informations = [
       ],
       phone: ['Phone: +84 899 320 427', 'Mobile: +84 899 320 427', 'Fax: +84 899 320 427'],
       email: ['diwas118151@gmail.com', 'https://iamnak.info', 'cosanpha.omega@gmail.com'],
+      facebook: ['https://www.facebook.com/pipix149'],
+      twitter: ['https://twitter.com/NaKMiers'],
+      instagram: ['https://www.instagram.com/pipix149'],
+      pinterest: ['https://www.pinterest.com/nakmiers'],
+      zalo: ['+84 899320427'],
+      tiktok: ['https://www.tiktok.com/@nakmiers'],
    },
    {
       id: 2,
@@ -22,6 +28,12 @@ const informations = [
       address: ['343/6 To Hien Thanh Street', 'Ward 5, District 10', 'Ho Chi Minh City, Vietnam'],
       phone: ['Phone: +84 383 175 948', 'Mobile: +84 383 175 948', 'Fax: +84 383 175 948'],
       email: ['hothingoctram03@gmail.com'],
+      facebook: ['facebook'],
+      twitter: ['https://twitter.com/_jinuzz'],
+      instagram: ['https://www.instagram.com/__blmdy'],
+      pinterest: ['pinterest'],
+      zalo: ['+84 383175948'],
+      tiktok: ['https://www.tiktok.com'],
    },
 ]
 

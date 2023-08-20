@@ -120,6 +120,7 @@
    flex-direction: column;
 
    & > .navLink {
+      position: relative;
       display: block;
       padding: 12px 0 13px;
       line-height: 25px;
@@ -132,11 +133,29 @@
 
       &:hover {
          color: var(--primary);
+         &.commingSoon {
+            color: lightgray;
+         }
       }
 
       &.active {
          color: var(--primary);
       }
+   }
+}
+
+.badge {
+   position: absolute;
+   top: 40%;
+   right: 0;
+   transform: translateY(-50%);
+   // background: #000;
+
+   & > img {
+      display: block;
+      width: 40px;
+
+      object-fit: contain;
    }
 }
 
@@ -277,6 +296,7 @@
    }
 
    & > .navLink {
+      position: relative;
       padding: 16px 30px;
       border: 1px solid #666972;
       border-bottom: none;
@@ -285,6 +305,15 @@
       font-size: 16px;
       font-family: 'Source Sans Pro', sans-serif;
       color: var(--text-secondary);
+
+      & > .badge {
+         top: 50%;
+         right: 25px;
+
+         & > img {
+            width: 50px;
+         }
+      }
 
       &.active {
          position: relative;
