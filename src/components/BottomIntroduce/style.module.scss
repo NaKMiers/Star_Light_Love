@@ -42,9 +42,10 @@
 
 .poem {
    letter-spacing: 2px;
+   text-align: justify;
    // tablet
    @media (max-width: 980px) {
-      text-align: center;
+      text-align: justify;
    }
 }
 

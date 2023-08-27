@@ -182,7 +182,7 @@ function ContactInfo({ info }) {
                   <img src={tiktok} alt='icon' />
                </div>
 
-               <h5 className={`${styles.title} h5Title`}>Pinterest</h5>
+               <h5 className={`${styles.title} h5Title`}>Tiktok</h5>
 
                <p className={`${styles.paragraph} paragraph`}>
                   {info.tiktok.map((in4, index) => (

@@ -25,15 +25,15 @@ const informations = [
    {
       id: 2,
       name: 'Empe HC 🥺',
-      address: ['343/6 To Hien Thanh Street', 'Ward 5, District 10', 'Ho Chi Minh City, Vietnam'],
+      address: ['343/7E To Hien Thanh Street', 'Ward 12, District 10', 'Ho Chi Minh City, Vietnam'],
       phone: ['Phone: +84 383 175 948', 'Mobile: +84 383 175 948', 'Fax: +84 383 175 948'],
-      email: ['hothingoctram03@gmail.com'],
-      facebook: ['facebook'],
+      email: ['hothingoctram03@gmail.com', 'tkim9973@gmail.com'],
+      facebook: ['https://www.facebook.com/htnt.lim'],
       twitter: ['https://twitter.com/_jinuzz'],
       instagram: ['https://www.instagram.com/__blmdy'],
-      pinterest: ['pinterest'],
+      pinterest: ['https://www.pinterest.com/limjinneez'],
       zalo: ['+84 383175948'],
-      tiktok: ['https://www.tiktok.com'],
+      tiktok: ['https://www.tiktok.com/@chinutt_'],
    },
 ]
 

@@ -68,7 +68,7 @@ function BottomIntroduce({ in4s, reverse }) {
                   voluptatem.
                </p> */}
 
-               <p className={`paragraph ${styles.poem}`}>{in4s.infomation}</p>
+               <p className={`paragraph ${styles.poem}`}>{in4s.information}</p>
 
                {/* <div className={styles.signature}>
                   <img src={signature} alt='signature' />
