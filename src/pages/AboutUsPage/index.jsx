@@ -113,7 +113,7 @@ Anpha Right Choice dear to Empe HC -
    {
       name: 'Empe HC',
       title: "I am Anpha Right Choice's empe!",
-      introduce: "You're not my choice, you're my one in a lifetime.",
+      introduce: "You're not my choice, you're my once in a lifetime.",
       banner: [banner3, banner4],
       staticticals: [
          {
