@@ -11,7 +11,7 @@ import tumblr from '../../assets/imgs/tumblrWhite.png'
 import twitter from '../../assets/imgs/twitterWhite.png'
 import styles from './style.module.scss'
 
-function CaseItem({ data }) {
+function CaseItem({ datum, data }) {
    const PUBLIC_FOLDER = process.env.REACT_APP_SERVER
    const dispatch = useDispatch()
 
@@ -21,8 +21,8 @@ function CaseItem({ data }) {
 
    const [isShowDesc, setShowDesc] = useState(false)
    const [isEditing] = useState(false)
-   const [title, setTitle] = useState(data?.title || '')
-   const [desc, setDesc] = useState(data?.desc || '')
+   const [title, setTitle] = useState(datum?.title || '')
+   const [desc, setDesc] = useState(datum?.desc || '')
    const [duration, setDuration] = useState('')
 
    // show social media share
@@ -62,11 +62,11 @@ function CaseItem({ data }) {
    // // save edit "title and desc"
    // const handleSaveEdit = useCallback(async () => {
    //    console.log('handleSaveEdit')
-   //    if (title !== data.title || desc !== data.desc) {
+   //    if (title !== datum.title || desc !== datum.desc) {
    //       try {
-   //          const res = await mediaApis.editMedia(data._id, { title, desc })
-   //          console.log(res.data)
-   //          dispatch(actions.editMediaDirectly(res.data))
+   //          const res = await mediaApis.editMedia(datum._id, { title, desc })
+   //          console.log(res.datum)
+   //          dispatch(actions.editMediaDirectly(res.datum))
    //          setEditing(false)
    //       } catch (err) {
    //          console.log(err)
@@ -74,20 +74,20 @@ function CaseItem({ data }) {
    //    } else {
    //       setEditing(false)
    //    }
-   // }, [data, title, desc, dispatch])
+   // }, [datum, title, desc, dispatch])
 
    // // delete media
    // const handleDeleteMedia = useCallback(async () => {
    //    console.log('handleDeleteMedia')
 
    //    try {
-   //       const res = await mediaApis.deleteMedia(data._id)
-   //       console.log('res-delete: ', res.data)
-   //       dispatch(actions.deleteMediaDirectly(res.data._id))
+   //       const res = await mediaApis.deleteMedia(datum._id)
+   //       console.log('res-delete: ', res.datum)
+   //       dispatch(actions.deleteMediaDirectly(res.datum._id))
    //    } catch (err) {
    //       console.log(err)
    //    }
-   // }, [dispatch, data])
+   // }, [dispatch, datum])
 
    // format duration
    const formatDuration = useCallback(seconds => {
@@ -123,16 +123,19 @@ function CaseItem({ data }) {
          className={styles.caseItem}
          onMouseOver={handleMouseOver}
          onMouseLeave={handleMouseLeave}
-         // onClick={() => navigate(`/portfolio/${data?._id}`)}
-         onClick={() => dispatch(actions.reviewMedia(data))}
+         // onClick={() => navigate(`/portfolio/${datum?._id}`)}
+         onClick={() => {
+            dispatch(actions.reviewMedia(datum))
+            dispatch(actions.setUpAutoPlay(data))
+         }}
       >
          <div className={styles.thumbnail}>
-            {data?.type === 'video' ? (
+            {datum?.type === 'video' ? (
                <video ref={videoRef}>
-                  <source src={`${PUBLIC_FOLDER}${data?.path}`} />
+                  <source src={`${PUBLIC_FOLDER}${datum?.path}`} />
                </video>
             ) : (
-               <img src={`${PUBLIC_FOLDER}${data?.path}`} alt='thumbnail' loading='lazy' />
+               <img src={`${PUBLIC_FOLDER}${datum?.path}`} alt='thumbnail' loading='lazy' />
             )}
          </div>
 
@@ -152,7 +155,8 @@ function CaseItem({ data }) {
                   className={styles.icon}
                   onClick={e => {
                      e.stopPropagation()
-                     dispatch(actions.reviewMedia(data))
+                     dispatch(actions.reviewMedia(datum))
+                     dispatch(actions.setUpAutoPlay(data))
                   }}
                >
                   <FontAwesomeIcon icon={faEye} />
@@ -248,7 +252,7 @@ function CaseItem({ data }) {
                   isEditing ? styles.editing : ''
                } h4Title`}
             >
-               <span title={data?.title}>{data?.title}</span>
+               <span title={datum?.title}>{datum?.title}</span>
                <input
                   type='text'
                   className={`${styles.titleInput} h4Title`}
@@ -264,7 +268,7 @@ function CaseItem({ data }) {
                   isEditing ? styles.editing : ''
                }`}
             >
-               <p>{data?.desc}</p>
+               <p>{datum?.desc}</p>
                <textarea
                   className={styles.descInput}
                   rows={3}

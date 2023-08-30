@@ -7,7 +7,7 @@ import HomePage from './pages/HomePage'
 import AboutUsPage from './pages/AboutUsPage'
 // import PortfolioPage from './pages/PortfolioPage'
 // import ProjectPage from './pages/ProjectPage'
-// import ServicesPage from './pages/ServicesPage'
+import ServicesPage from './pages/ServicesPage'
 // import BlogsPage from './pages/BlogsPage'
 // import BlogPage from './pages/BlogPage'
 import ContactPage from './pages/ContactPage'
@@ -28,8 +28,8 @@ function App() {
             <Route path='/portfolio' exact element={<CommingSoonPage />} />
             {/* <Route path='/portfolio/:id' exact={false} element={<ProjectPage />} /> */}
             <Route path='/portfolio/:id' exact={false} element={<CommingSoonPage />} />
-            {/* <Route path='/services' exact element={<ServicesPage />} /> */}
-            <Route path='/services' exact element={<CommingSoonPage />} />
+            <Route path='/services' exact element={<ServicesPage />} />
+            {/* <Route path='/services' exact element={<CommingSoonPage />} /> */}
             {/* <Route path='/blogs' exact element={<BlogsPage />} /> */}
             <Route path='/blogs' exact element={<CommingSoonPage />} />
             {/* <Route path='/blogs/:id' exact={false} element={<BlogPage />} /> */}

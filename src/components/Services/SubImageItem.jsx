@@ -10,8 +10,23 @@ function SubImageItem({ datum, data }) {
    const overlayRef = useRef(null)
 
    const handleReviewImage = useCallback(() => {
-      dispatch(actions.reviewMedia(datum))
-      dispatch(actions.setUpAutoPlay(data))
+      dispatch(
+         actions.reviewMedia({
+            id: 35,
+            title: '35',
+            path: datum,
+            type: 'image',
+         })
+      )
+
+      let newData = data.map(datum => ({
+         id: 35,
+         title: '35',
+         path: datum,
+         type: 'image',
+      }))
+
+      dispatch(actions.setUpAutoPlay(newData))
    }, [data, datum, dispatch])
 
    return (

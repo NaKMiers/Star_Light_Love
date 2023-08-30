@@ -152,7 +152,7 @@ function ShowCase() {
             </div> */}
 
             {showcase.map((media, index) => (
-               <CaseItem data={media} key={index} />
+               <CaseItem data={showcase} datum={media} key={index} />
             ))}
 
             <AddMediaModal reRender={handleScrollAnimation} />

@@ -75,7 +75,7 @@ function MediaReview() {
    useEffect(() => {
       if (media) {
          if (autoPlayList.length > 0) {
-            const index = autoPlayList.findIndex(item => item === media)
+            const index = autoPlayList.findIndex(item => item.path === media)
             setCurNumber(index + 1)
          }
          handleOpenMediaReview()
@@ -86,11 +86,13 @@ function MediaReview() {
    const handleNextImage = useCallback(() => {
       if (!isChanging) {
          setChanging(true)
-         const index = autoPlayList.findIndex(item => item === media)
+         const index = autoPlayList.findIndex(item => item.path === media)
          setCurNumber(index + 1)
          mediaRef.current.style.opacity = 0
 
          setTimeout(() => {
+            console.log('autoPlayList: ', autoPlayList)
+
             index === autoPlayList.length - 1
                ? dispatch(actions.reviewMedia(autoPlayList[0]))
                : dispatch(actions.reviewMedia(autoPlayList[index + 1]))
@@ -105,10 +107,12 @@ function MediaReview() {
    const handlePrevImage = useCallback(() => {
       if (!isChanging) {
          setChanging(true)
-         const index = autoPlayList.findIndex(item => item === media)
+         const index = autoPlayList.findIndex(item => item.path === media)
          mediaRef.current.style.opacity = 0
 
          setTimeout(() => {
+            console.log('autoPlayList: ', autoPlayList)
+
             index === 0
                ? dispatch(actions.reviewMedia(autoPlayList[autoPlayList.length - 1]))
                : dispatch(actions.reviewMedia(autoPlayList[index - 1]))
